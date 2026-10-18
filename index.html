@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal Refleksi Portofolio Digital PPG Semester II - Muhammad Izzul Fahmi</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                            950: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #3b82f6, #6366f1, #a855f7);
+            border-radius: 1.5rem;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased font-sans min-h-screen flex flex-col justify-between selection:bg-blue-500 selection:text-white">
+
+    <!-- TOP NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <img src="logo.png" alt="Logo" class="h-11 w-auto object-contain relative z-10">
+                    <div class="absolute inset-0 bg-blue-500/30 rounded-full blur-md animate-pulse-glow"></div>
+                </div>
+                <div>
+                    <h1 class="font-heading font-bold text-white text-sm sm:text-base tracking-wide flex items-center gap-2">
+                        Muhammad Izzul Fahmi
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    </h1>
+                    <p class="text-xs text-blue-400 font-medium tracking-wider">NIM: 250211920117 • PGSD PPG Calon Guru</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="switchView('dashboard')" id="nav-dashboard-btn" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-blue-600 text-white shadow-lg shadow-blue-600/30 flex items-center gap-2">
+                    <i class="fa-solid fa-grid-2"></i> Beranda Portfolio
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN VIEW CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ==================== VIEW 1: DASHBOARD UTAMA ==================== -->
+        <div id="view-dashboard" class="space-y-12 transition-all duration-500 opacity-100">
+            
+            <!-- HERO HEROIC BANNER -->
+            <div class="relative rounded-3xl overflow-hidden glass-dark p-8 sm:p-12 border border-slate-800 shadow-2xl">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="relative z-10 max-w-4xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-semibold backdrop-blur-md">
+                        <i class="fa-solid fa-sparkles text-amber-400"></i> Jurnal Refleksi Pembelajaran PPG Calon Guru • Semester II
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
+                        Transformasi Paradigma <br>
+                        <span class="gradient-text">Pendidik Profesional Berdampak</span>
+                    </h2>
+                    
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed text-justify max-w-3xl">
+                        Dokumentasi refleksi pengalaman belajar komprehensif berbasis kerangka 4C (Connection, Challenge, Concept, Change), analisis keberlanjutan artefak pembelajaran, serta jurnal evaluasi holistik pada Program Pendidikan Profesi Guru[cite: 307, 308].
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-300">
+                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/80 border border-slate-700">
+                            <i class="fa-solid fa-user-check text-blue-400"></i>
+                            <span>Muhammad Izzul Fahmi, S.Pd.</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/80 border border-slate-700">
+                            <i class="fa-solid fa-school text-emerald-400"></i>
+                            <span>Universitas Negeri Jember / SDN Tegal Besar 03</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KARTU REFLEKSI KESELURUHAN PPG (LK 3) HIGHLIGHT -->
+            <div class="relative rounded-3xl p-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div class="bg-slate-950 rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-3 max-w-2xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">
+                            <i class="fa-solid fa-award"></i> TAHAP 4 REFLEKSI PUNCAK (LK 3)
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-heading font-bold text-white">Refleksi Pengalaman Belajar Selama Mengikuti Program PPG</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 text-justify leading-relaxed">
+                            Pandangan komprehensif mengenai wajah ideal pendidikan Indonesia, langkah menjadi guru profesional, dan 3 Rencana Tindak Lanjut strategis memulai karir pendidik[cite: 308].
+                        </p>
+                    </div>
+                    <button onclick="switchView('lk3')" class="w-full md:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all group shrink-0">
+                        <span>Buka Dokumentasi LK 3</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SECTION DAFTAR MATA KULIAH SEMESTER 2 -->
+            <div class="space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
+                    <div>
+                        <h3 class="text-2xl font-heading font-bold text-white">Modul Mata Kuliah Semester II</h3>
+                        <p class="text-xs sm:text-sm text-slate-400">Pilih mata kuliah di bawah ini untuk menelaah dokumen refleksi 4C dan analisis artefak lengkap[cite: 307].</p>
+                    </div>
+                    <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 w-max">5 Mata Kuliah Terintegrasi[cite: 307]</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Card 1: Projek Kepemimpinan -->
+                    <div onclick="switchView('projek-kepemimpinan')" class="cursor-pointer group relative glass-dark rounded-2xl p-6 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-blue-500/10 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center font-heading font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">01</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Kepemimpinan</span>
+                            </div>
+                            <h4 class="text-lg font-heading font-bold text-white group-hover:text-blue-400 transition-colors">Projek Kepemimpinan</h4>
+                            <p class="text-xs text-slate-400 text-justify line-clamp-3 leading-relaxed">
+                                Proposal Projek TEDUH (Telang & Daur Ulang Sampah) berbasis Service-Learning, SMART Goals, dan analisis keberlanjutan lingkungan sekolah[cite: 307].
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-blue-400">
+                            <span>Baca Refleksi Modul</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: PTK -->
+                    <div onclick="switchView('ptk')" class="cursor-pointer group relative glass-dark rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-indigo-500/10 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center font-heading font-bold text-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors">02</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Metodologi</span>
+                            </div>
+                            <h4 class="text-lg font-heading font-bold text-white group-hover:text-indigo-400 transition-colors">Penelitian Tindakan Kelas (PTK)</h4>
+                            <p class="text-xs text-slate-400 text-justify line-clamp-3 leading-relaxed">
+                                Proposal peningkatan minat belajar matematika operasi hitung perkalian menggunakan media digital Tug of War dan model TGT[cite: 307].
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-indigo-400">
+                            <span>Baca Refleksi Modul</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: PSE -->
+                    <div onclick="switchView('pse')" class="cursor-pointer group relative glass-dark rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-emerald-500/10 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center font-heading font-bold text-sm group-hover:bg-emerald-600 group-hover:text-white transition-colors">03</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Sosial Emosional</span>
+                            </div>
+                            <h4 class="text-lg font-heading font-bold text-white group-hover:text-emerald-400 transition-colors">Pembelajaran Sosial Emosional</h4>
+                            <p class="text-xs text-slate-400 text-justify line-clamp-3 leading-relaxed">
+                                Praktik Experiential Learning Siklus Kolb, 5 KSE CASEL, Teknik STOP, kerangka EMC², dan iklim School Well-Being[cite: 307].
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-emerald-400">
+                            <span>Baca Refleksi Modul</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: PPL Mandiri -->
+                    <div onclick="switchView('ppl-mandiri')" class="cursor-pointer group relative glass-dark rounded-2xl p-6 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-amber-500/10 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-heading font-bold text-sm group-hover:bg-amber-600 group-hover:text-white transition-colors">04</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">Praktik Lapangan</span>
+                            </div>
+                            <h4 class="text-lg font-heading font-bold text-white group-hover:text-amber-400 transition-colors">PPL Mandiri</h4>
+                            <p class="text-xs text-slate-400 text-justify line-clamp-3 leading-relaxed">
+                                Pelaksanaan mengajar terbimbing mandiri utuh, asesmen diagnostik, serta manajemen kelas ramah anak di SDN Tegal Besar 03[cite: 307].
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
+                            <span>Baca Refleksi Modul</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: PMA Lanjut -->
+                    <div onclick="switchView('pma-lanjut')" class="cursor-pointer group relative glass-dark rounded-2xl p-6 border border-slate-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-purple-500/10 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center font-heading font-bold text-sm group-hover:bg-purple-600 group-hover:text-white transition-colors">05</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Asesmen Kompleks</span>
+                            </div>
+                            <h4 class="text-lg font-heading font-bold text-white group-hover:text-purple-400 transition-colors">PMA Lanjut</h4>
+                            <p class="text-xs text-slate-400 text-justify line-clamp-3 leading-relaxed">
+                                Pembelajaran Mendalam dan Asesmen Lanjut, rancangan modul RPM komprehensif, serta diferensiasi proses-konten[cite: 307].
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-purple-400">
+                            <span>Baca Refleksi Modul</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==================== VIEW 2: PROJEK KEPEMIMPINAN ==================== -->
+        <div id="view-projek-kepemimpinan" class="hidden space-y-8 transition-all duration-500">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <button onclick="switchView('dashboard')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 text-xs font-bold transition-all">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+                </button>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Mata Kuliah 01</span>
+            </div>
+
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+                <div class="border-b border-slate-200 pb-6">
+                    <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 mb-2">Projek Kepemimpinan</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">Refleksi Pengalaman Belajar Semester II • NIM: 250211920117</p>
+                </div>
+
+                <!-- 4C REFLEKSI -->
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-blue-600 flex items-center gap-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-brain"></i> Refleksi Pengalaman Belajar (4C)[cite: 307]
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-slate-700 text-justify leading-relaxed">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">1. Apa keterkaitan materi perkuliahan dengan peran saya sebagai calon guru?[cite: 307]</h4>
+                            <p>
+                                Mata kuliah Projek Kepemimpinan memiliki keterkaitan yang sangat erat dan strategis dengan peran saya sebagai calon guru sekolah dasar[cite: 307]. Melalui mata kuliah ini, saya dibekali pemahaman bahwa peran seorang guru tidak hanya terbatas pada menyampaikan materi atau mengajar di dalam kelas, melainkan juga bertindak sebagai agen perubahan (*agent of change*) dan pemimpin pendidikan yang berdampak bagi lingkungan sekolah dan masyarakat sekitarnya[cite: 307]. Setiap materi perkuliahan melatih saya untuk peka terhadap masalah kontekstual di ekosistem sekolah (seperti masalah lingkungan, penghijauan, dan pengelolaan sampah), memanfaatkan potensi/aset yang ada (*asset-based approach*), serta memimpin dan mengoordinasikan sebuah proyek secara kolaboratif bersama kawan sejawat, siswa, guru pamong, dan mitra sekolah[cite: 307].
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">2. Apa saja materi perkuliahan yang berbeda dari praktik yang saya lakukan selama ini?[cite: 307]</h4>
+                            <p>
+                                Sebelum mempelajari mata kuliah ini, saya memandang kepemimpinan hanya sebagai kepemimpinan struktural di mana seorang pemimpin cenderung memberikan instruksi dari atas ke bawah (*top-down*)[cite: 307]. Selain itu, perencanaan program sering kali berfokus hanya pada target keluaran fisik tanpa memikirkan aspek keberlanjutan (*sustainability*) dan dampaknya secara sistemik[cite: 307]. Mata kuliah Projek Kepemimpinan mengubah pola pikir tersebut secara mendasar[cite: 307]. Saya belajar menerapkan pendekatan *Servant Leadership* (kepemimpinan yang melayani) dan *Transformational Leadership*, di mana seorang pemimpin bergerak melayani, memberdayakan, serta membangun visi bersama[cite: 307]. Selain itu, perancangan proyek dilakukan dengan metodologi terstruktur berbasis *Systems Thinking*, Inkuiri Apresiatif (BAGJA), hingga perumusan target berbasis *SMART Goals*[cite: 307].
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">3. Apa saja konsep utama dan penting yang telah saya pelajari sebagai calon guru?[cite: 307]</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Visi Guru Profesional & Servant Leadership:</strong> Guru sebagai penggerak perubahan yang berorientasi pada pemberdayaan murid[cite: 307].</li>
+                                <li><strong>Systems Thinking & Inkuiri Apresiatif (BAGJA):</strong> Pemetaan aset dan ekosistem pendidikan berbasis kekuatan[cite: 307].</li>
+                                <li><strong>Keterkaitan dengan SDGs:</strong> Menghubungkan aksi nyata lokal dengan tujuan pembangunan berkelanjutan (SDG 3, 4, 11, 12, 15, 17)[cite: 307].</li>
+                                <li><strong>Formulasi SMART Goals:</strong> Target proyek yang spesifik, terukur, dapat dicapai, relevan, dan terikat waktu[cite: 307].</li>
+                                <li><strong>7 Habits of Highly Effective People:</strong> Penerapan sikap proaktif, memulai dengan tujuan akhir, hingga memprioritaskan yang utama[cite: 307].</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">4. Apa saja perubahan yang ingin saya lakukan setelah mendapatkan materi perkuliahan ini?[cite: 307]</h4>
+                            <p>
+                                Saya berkomitmen untuk menjadi guru yang proaktif mengambil inisiatif pemecahan masalah lingkungan sekolah, menerapkan kepemimpinan kolaboratif yang melibatkan seluruh warga sekolah, serta mengintegrasikan pembelajaran berbasis proyek lingkungan berkelanjutan (*sustainability*)[cite: 307].
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANALISIS ARTEFAK -->
+                <div class="space-y-4 pt-4 border-t border-slate-200">
+                    <h3 class="text-lg font-bold text-blue-600 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-open"></i> Analisis Artefak Pembelajaran[cite: 307]
+                    </h3>
+                    <p class="text-sm text-slate-700 text-justify leading-relaxed">
+                        Artefak utama yang dijadikan bukti dukung adalah dokumen penugasan UTS berupa <strong>Proposal Projek Kepemimpinan "TEDUH: Telang dan Daur Ulang Sampah sebagai Inovasi Penghijauan dan Pengelolaan Lingkungan Sekolah Berkelanjutan"</strong>[cite: 307].
+                    </p>
+                    <div class="p-4 bg-blue-50 border border-blue-200 rounded-2xl flex items-center justify-between">
+                        <span class="text-xs font-bold text-blue-900"><i class="fa-solid fa-link"></i> Link Google Drive Artefak Proposal TEDUH:</span>
+                        <a href="https://drive.google.com/drive/folders/17cjnwLcFj3_GnN4vKoF6a49FkRMOxUr3?usp=sharing" target="_blank" class="px-4 py-2 bg-blue-600 text-white font-bold text-xs rounded-xl hover:bg-blue-700 transition-colors">
+                            Buka Folder Artefak
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PARAGRAF REFLEKSI AKHIR -->
+                <div class="p-6 bg-slate-900 text-slate-100 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-blue-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-quote-left"></i> Merefleksi Pengalaman Belajar Mata Kuliah[cite: 307]
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-300 text-justify italic leading-relaxed">
+                        "Mata kuliah ini membuka wawasan saya bahwa peran seorang guru sekolah dasar tidak hanya sebatas pengajar di dalam kelas, melainkan seorang pemimpin dan agen perubahan di lingkungan sekolahnya. Awalnya saya berpikir bahwa membuat proyek sekolah hanyalah kegiatan penanaman biasa, namun melalui perancangan Proposal Projek TEDUH, saya memahami pentingnya kepemimpinan kolaboratif, perumusan target SMART, pengelolaan anggaran HPP yang tertib, serta perencanaan keberlanjutan yang melibatkan murid dan guru."[cite: 307]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 3: PTK ==================== -->
+        <div id="view-ptk" class="hidden space-y-8 transition-all duration-500">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <button onclick="switchView('dashboard')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 text-xs font-bold transition-all">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+                </button>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mata Kuliah 02</span>
+            </div>
+
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+                <div class="border-b border-slate-200 pb-6">
+                    <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 mb-2">Penelitian Tindakan Kelas (PTK)</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">Refleksi Pengalaman Belajar Semester II • NIM: 250211920117</p>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-indigo-600 flex items-center gap-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-brain"></i> Refleksi Pengalaman Belajar (4C)[cite: 307]
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-slate-700 text-justify leading-relaxed">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">1. Apa keterkaitan materi perkuliahan dengan peran saya sebagai calon guru?[cite: 307]</h4>
+                            <p>
+                                Mata kuliah Penelitian Tindakan Kelas memiliki keterkaitan yang sangat erat dan strategis dengan peran saya sebagai calon guru sekolah dasar[cite: 307]. Melalui mata kuliah ini, saya dibekali pemahaman bahwa peran guru tidak sekadar mengajar atau menyampaikan kurikulum, melainkan juga sebagai peneliti tindakan yang reflektif dan adaptif di dalam kelas[cite: 307]. Setiap materi perkuliahan melatih saya untuk peka mengidentifikasi permasalahan pembelajaran nyata di kelas, menganalisis akar penyebab masalah, serta merancang tindakan perbaikan yang sistematis dan terukur[cite: 307].
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">2. Apa saja materi perkuliahan yang berbeda dari praktik yang saya lakukan selama ini?[cite: 307]</h4>
+                            <p>
+                                Sebelum mempelajari mata kuliah ini, saya cenderung memandang kendala pembelajaran seperti rendahnya minat belajar atau kesulitan pemahaman siswa sebagai masalah yang bersumber dari siswa itu sendiri[cite: 307]. Mata kuliah PTK mengubah pola pikir tersebut secara mendasar[cite: 307]. Saya belajar bahwa kendala pembelajaran harus dianalisis dari kualitas proses yang dirancang oleh guru[cite: 307]. Perbaikan pembelajaran harus dilakukan secara bersiklus dan sistematis berbasis bukti empiris, serta mengamati perkembangan perilaku siswa secara holistik[cite: 307].
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">3. Apa saja konsep utama dan penting yang telah saya pelajari sebagai calon guru?[cite: 307]</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Prinsip & Etika PTK:</strong> Perbaikan pembelajaran tanpa mengganggu komitmen utama mengajar[cite: 307].</li>
+                                <li><strong>Daur Ulang Kemmis & McTaggart:</strong> Siklus Perencanaan, Pelaksanaan, Pengamatan, dan Refleksi[cite: 307].</li>
+                                <li><strong>Analisis Akar Masalah:</strong> Membedakan gejala masalah dengan akar penyebab utama[cite: 307].</li>
+                                <li><strong>Integrasi Model & Media Inovatif:</strong> Model TGT berpadu *Game-Based Learning*[cite: 307].</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-slate-200">
+                    <h3 class="text-lg font-bold text-indigo-600 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-open"></i> Analisis Artefak Pembelajaran[cite: 307]
+                    </h3>
+                    <p class="text-sm text-slate-700 text-justify leading-relaxed">
+                        Artefak utama yang digunakan adalah Proposal PTK berjudul <strong>"Peningkatan Minat Belajar Operasi Hitung Perkalian melalui Media Digital Tug of War pada Murid SD"</strong>[cite: 307].
+                    </p>
+                    <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-2xl flex items-center justify-between">
+                        <span class="text-xs font-bold text-indigo-900"><i class="fa-solid fa-link"></i> Link Google Drive Artefak Proposal PTK:</span>
+                        <a href="https://drive.google.com/drive/folders/1eb8KKuYAja6TWDkQhLHhjE1ggns4sTyK?usp=sharing" target="_blank" class="px-4 py-2 bg-indigo-600 text-white font-bold text-xs rounded-xl hover:bg-indigo-700 transition-colors">
+                            Buka Folder Artefak
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-900 text-slate-100 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-indigo-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-quote-left"></i> Merefleksi Pengalaman Belajar Mata Kuliah[cite: 307]
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-300 text-justify italic leading-relaxed">
+                        "Mata kuliah ini membuka wawasan saya tentang pentingnya peran guru sebagai peneliti tindakan di kelasnya sendiri. Awalnya saya berpikir bahwa hasil belajar yang rendah bersumber dari ketidakmampuan murid, tetapi setelah menyusun proposal PTK dan mengkaji kasus pembelajaran, saya memahami bahwa akar masalah sering kali terletak pada media dan strategi mengajar yang kurang bervariasi."[cite: 307]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 4: PSE ==================== -->
+        <div id="view-pse" class="hidden space-y-8 transition-all duration-500">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <button onclick="switchView('dashboard')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 text-xs font-bold transition-all">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+                </button>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Mata Kuliah 03</span>
+            </div>
+
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+                <div class="border-b border-slate-200 pb-6">
+                    <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 mb-2">Pembelajaran Sosial Emosional (PSE)</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">Refleksi Pengalaman Belajar Semester II • NIM: 250211920117</p>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-emerald-600 flex items-center gap-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-brain"></i> Refleksi Pengalaman Belajar (4C)[cite: 307]
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-slate-700 text-justify leading-relaxed">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">1. Apa keterkaitan materi perkuliahan dengan peran saya sebagai calon guru?[cite: 307]</h4>
+                            <p>
+                                Pembelajaran Sosial Emosional (PSE) memiliki keterkaitan yang sangat erat dan fundamental dengan peran saya sebagai calon guru sekolah dasar[cite: 307]. Melalui mata kuliah ini, saya menyadari bahwa penguasaan materi akademik saja tidak cukup; seorang guru profesional harus memiliki kematangan emosional dan mampu membangun iklim belajar yang aman, suportif, dan ramah anak[cite: 307]. Setiap topik melatih saya untuk menyelaraskan kurikulum dengan pengembangan 5 Kompetensi Sosial Emosional CASEL, sehingga siswa dapat belajar secara bermakna, berkesadaran, dan menyenangkan[cite: 307].
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">2. Apa saja materi perkuliahan yang berbeda dari praktik yang saya lakukan selama ini?[cite: 307]</h4>
+                            <p>
+                                Mata kuliah PSE mengubah paradigma mengajar saya dengan mengintegrasikan model *Experiential Learning* Siklus Kolb, menerapkan Teknik STOP untuk kesadaran penuh, serta mengelola iklim kelas berbasis *High Control & High Warmth* demi menciptakan *School Well-Being*[cite: 307].
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">3. Apa saja konsep utama dan penting yang telah saya pelajari sebagai calon guru?[cite: 307]</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>5 Kompetensi CASEL:</strong> Kesadaran diri, manajemen diri, kesadaran sosial, keterampilan berelasi, dan pengambilan keputusan bertanggung jawab[cite: 307].</li>
+                                <li><strong>Kerangka EMC²:</strong> *Empathy, Mindfulness, Compassion, Critical Inquiry*[cite: 307].</li>
+                                <li><strong>Experiential Learning (Kolb):</strong> Pengalaman nyata, refleksi, konseptualisasi, dan eksperimen aktif[cite: 307].</li>
+                                <li><strong>Dimensi School Well-Being:</strong> Pemenuhan kebutuhan *Having, Loving, Being,* dan *Health*[cite: 307].</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-slate-200">
+                    <h3 class="text-lg font-bold text-emerald-600 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-open"></i> Analisis Artefak Pembelajaran[cite: 307]
+                    </h3>
+                    <p class="text-sm text-slate-700 text-justify leading-relaxed">
+                        Artefak utama berada pada Topik 3 Bagian 3.E berupa <strong>Video Pembelajaran Praktik Experiential Learning & PSE (Siklus Mandiri 1 IPAS Pancaindra)</strong>[cite: 307].
+                    </p>
+                    <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-900"><i class="fa-solid fa-link"></i> Link Google Drive Artefak Video Pembelajaran PSE:</span>
+                        <a href="https://drive.google.com/drive/folders/1WAkNURv1WgUK5exH9dzdf3SWGLeZvQXn?usp=sharing" target="_blank" class="px-4 py-2 bg-emerald-600 text-white font-bold text-xs rounded-xl hover:bg-emerald-700 transition-colors">
+                            Buka Folder Video
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-900 text-slate-100 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-emerald-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-quote-left"></i> Merefleksi Pengalaman Belajar Mata Kuliah[cite: 307]
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-300 text-justify italic leading-relaxed">
+                        "Mempelajari Pembelajaran Sosial Emosional dan mempraktikkannya melalui perancangan RPM serta perekaman video pembelajaran berbasis Experiential Learning menyadarkan saya bahwa pembelajaran yang paling membekas adalah pembelajaran yang menyentuh hati dan melibatkan pengalaman langsung siswa. Melalui aktivitas estafet kinestetik dan permainan fokus pancaindra, saya menyaksikan sendiri bagaimana murid dapat belajar mengelola emosi dan bekerja sama dalam suasana gembira."[cite: 307]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 5: PPL MANDIRI ==================== -->
+        <div id="view-ppl-mandiri" class="hidden space-y-8 transition-all duration-500">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <button onclick="switchView('dashboard')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 text-xs font-bold transition-all">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+                </button>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Mata Kuliah 04</span>
+            </div>
+
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+                <div class="border-b border-slate-200 pb-6">
+                    <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 mb-2">Praktik Pengalaman Lapangan (PPL) Mandiri</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">Refleksi Pengalaman Belajar Semester II • NIM: 250211920117</p>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-amber-600 flex items-center gap-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-brain"></i> Refleksi Pengalaman Belajar (4C)[cite: 307]
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-slate-700 text-justify leading-relaxed">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">1. Keterkaitan Perkuliahan dengan Peran Calon Guru[cite: 307]</h4>
+                            <p>
+                                PPL Mandiri merupakan muara dari seluruh teori pedagogik yang dipelajari selama perkuliahan PPG[cite: 307]. Melalui praktik langsung di SDN Tegal Besar 03 Jember, saya mengasah kemampuan merancang Rencana Pembelajaran Mendalam, mengelola iklim kelas inklusif, dan mengevaluasi hasil belajar murid secara nyata[cite: 307].
+                            </p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">2. Perubahan Paradigma Mengajar[cite: 307]</h4>
+                            <p>
+                                Praktik PPL Mandiri melatih saya bertransisi dari mengajar seragam menjadi pembelajaran berorientasi kebutuhan murid melalui asesmen awal dan pendekatan terintegrasi[cite: 307].
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-900 text-slate-100 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-amber-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-quote-left"></i> Merefleksi Pengalaman Belajar Mata Kuliah[cite: 307]
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-300 text-justify italic leading-relaxed">
+                        "Praktik mengajar mandiri membentuk ketahanan mental dan adaptabilitas saya sebagai calon guru profesional yang peka terhadap kondisi nyata peserta didik di lapangan."[cite: 307]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 6: PMA LANJUT ==================== -->
+        <div id="view-pma-lanjut" class="hidden space-y-8 transition-all duration-500">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <button onclick="switchView('dashboard')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 text-xs font-bold transition-all">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+                </button>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Mata Kuliah 05</span>
+            </div>
+
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+                <div class="border-b border-slate-200 pb-6">
+                    <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 mb-2">Pembelajaran Mendalam dan Asesmen Lanjut</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">Refleksi Pengalaman Belajar Semester II • NIM: 250211920117</p>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-purple-600 flex items-center gap-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-brain"></i> Refleksi Pengalaman Belajar (4C)[cite: 307]
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-slate-700 text-justify leading-relaxed">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                            <h4 class="font-bold text-slate-900">1. Keterkaitan Perkuliahan dengan Peran Calon Guru[cite: 307]</h4>
+                            <p>
+                                Mata kuliah ini membekali saya merancang asesmen otentik kompleks dan pembelajaran mendalam berbasis pilar *Mindful, Meaningful,* dan *Joyful Learning*[cite: 307].
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-900 text-slate-100 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-purple-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-quote-left"></i> Merefleksi Pengalaman Belajar Mata Kuliah[cite: 307]
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-300 text-justify italic leading-relaxed">
+                        "PMA Lanjut memperkuat kompetensi saya dalam merancang alur asesmen yang benar-benar mengukur perkembangan pemahaman mendalam murid secara holistik."[cite: 307]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 7: REFLEKSI PUNCAK PPG (LK 3) ==================== -->
+        <div id="view-lk3" class="hidden space-y-8 transition-all duration-500">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <button onclick="switchView('dashboard')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 text-xs font-bold transition-all">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+                </button>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">TAHAP 4 • LK 3[cite: 308]</span>
+            </div>
+
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-10">
+                <div class="border-b border-slate-200 pb-6">
+                    <div class="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-md font-bold text-xs mb-2">LEMBAR KERJA 3 (LK 3)[cite: 308]</div>
+                    <h2 class="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900">Refleksi Pengalaman Belajar Selama Mengikuti Program PPG</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        <strong>Nama:</strong> Muhammad Izzul Fahmi, S.Pd. • <strong>NIM:</strong> 250211920117 • <strong>Prodi:</strong> PPG Calon Guru SD
+                    </p>
+                </div>
+
+                <!-- BAGIAN A -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-compass text-blue-600"></i> A. Refleksi Pengalaman Belajar Selama Mengikuti Program PPG[cite: 308]
+                    </h3>
+
+                    <!-- SOAL 1 -->
+                    <div class="space-y-3 p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h4 class="text-base font-bold text-blue-900 leading-snug">
+                            1. Setelah mengikuti rangkaian refleksi pengalaman belajar, menurut Anda, bagaimana seharusnya pendidikan di Indonesia?[cite: 308]
+                        </h4>
+                        <div class="text-sm text-slate-700 leading-relaxed text-justify space-y-3">
+                            <p>
+                                Setelah melalui rangkaian perkuliahan, praktik lapangan, dan refleksi mendalam selama dua semester di Program PPG Calon Guru, paradigma saya tentang dunia pendidikan mengalami transformasi yang sangat fundamental[cite: 307, 309]. Pendidikan di Indonesia seharusnya diselenggarakan dengan berlandaskan pada prinsip-prinsip utama berikut:
+                            </p>
+                            <ul class="space-y-2 list-disc pl-5">
+                                <li>
+                                    <strong>Pendidikan yang Menuntun dan Humanis Berpusat pada Murid:</strong> Menyelaraskan dengan filosofi Ki Hadjar Dewantara, pendidikan Indonesia bukan tempat untuk memaksakan kehendak atau mencetak murid sesuai keinginan guru[cite: 307]. Pendidikan harus bertindak sebagai proses menuntun kodrat alam yaitu potensi, minat, dan bakat bawaan, serta kodrat zaman yang mencakup perkembangan teknologi dan tantangan era abad ke-21 yang dimiliki setiap peserta didik[cite: 307]. Guru berperan menerapkan sistem Among melalui Ing Ngarsa Sung Tuladha, Ing Madya Mangun Karsa, Tut Wuri Handayani dengan menghargai keunikan dan diferensiasi setiap individu[cite: 307].
+                                </li>
+                                <li>
+                                    <strong>Integrasi Pembelajaran Mendalam:</strong> Proses pembelajaran tidak boleh lagi berfokus pada penghafalan materi atau mengejar ketuntasan administratif semata[cite: 307]. Pendidikan di Indonesia harus mewujudkan pembelajaran mendalam yang berlandaskan tiga pilar utama: *Mindful Learning* untuk kesadaran penuh dan berpikir kritis, *Meaningful Learning* untuk keterkaitan dengan konteks kehidupan nyata, serta *Joyful Learning* untuk suasana belajar yang menyenangkan melalui eksplorasi dan permainan edukatif[cite: 307].
+                                </li>
+                                <li>
+                                    <strong>Penguatan Pembelajaran Sosial Emosional dan Kerangka EMC²:</strong> Kematangan akademik murid tidak akan tercapai tanpa kematangan sosial emosional[cite: 307]. Pendidikan di Indonesia harus secara eksplisit mengintegrasikan lima kompetensi CASEL yaitu kesadaran diri, manajemen diri, kesadaran sosial, keterampilan berelasi, dan pengambilan keputusan yang bertanggung jawab, serta kerangka EMC² yang mencakup empati, kesadaran penuh, welas asih, dan penalaran kritis untuk membentuk karakter murid yang tangguh[cite: 307].
+                                </li>
+                                <li>
+                                    <strong>Penciptaan Kesejahteraan Sekolah:</strong> Lingkungan belajar di Indonesia harus menjamin rasa aman, nyaman, inklusif, serta bebas dari segala bentuk perundungan, kekerasan fisik, maupun tekanan emosional[cite: 307]. Sekolah yang sejahtera tercipta melalui pemenuhan empat dimensi: *having* untuk fasilitas fisik yang layak, *loving* untuk hubungan sosial yang harmonis, *being* untuk ruang aktualisasi diri, serta *health* untuk kesehatan fisik dan mental[cite: 307].
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- SOAL 2 -->
+                    <div class="space-y-3 p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h4 class="text-base font-bold text-blue-900 leading-snug">
+                            2. Apa saja yang dapat Anda lakukan untuk menjadi guru profesional?[cite: 308]
+                        </h4>
+                        <div class="text-sm text-slate-700 leading-relaxed text-justify space-y-3">
+                            <p>
+                                Untuk tumbuh dan konsisten menjadi sosok guru profesional yang berdampak luas, langkah-langkah nyata yang akan saya lakukan meliputi:
+                            </p>
+                            <ul class="space-y-2 list-disc pl-5">
+                                <li>
+                                    <strong>Menjadi Guru Reflektif dan Peneliti Tindakan:</strong> Guru profesional tidak bersikap statis[cite: 307]. Saya akan secara konsisten mengevaluasi setiap sesi pembelajaran yang telah dilaksanakan dan melakukan Penelitian Tindakan Kelas secara bersiklus untuk menyelesaikan permasalahan pembelajaran di kelas berbasis data ilmiah empiris, bukan sekadar intuisi[cite: 307].
+                                </li>
+                                <li>
+                                    <strong>Menampilkan Keteladanan Emosional dan Pembelajaran Sepanjang Hayat:</strong> Menerapkan pola pikir bertumbuh pada diri sendiri[cite: 307]. Saya harus mampu mengelola emosi mandiri melalui teknik STOP dan kesadaran penuh, bersikap sabar, penuh empati, serta menjaga kode etik profesi agar menjadi panutan nyata bagi peserta didik[cite: 307].
+                                </li>
+                                <li>
+                                    <strong>Menerapkan Kepemimpinan Pembelajaran:</strong> Mengembangkan gaya kepemimpinan yang melayani dan menggerakkan[cite: 307]. Saya akan menggunakan pendekatan berbasis aset untuk mengidentifikasi potensi ekosistem sekolah, merancang program inovatif lingkungan, serta memfasilitasi partisipasi aktif murid[cite: 307].
+                                </li>
+                                <li>
+                                    <strong>Membangun Kolaborasi Sinergis dengan Ekosistem Pendidikan:</strong> Aktif berkolaborasi dengan guru pamong, rekan sejawat di Komunitas Belajar, pimpinan sekolah, orang tua murid, serta mitra masyarakat luas[cite: 307].
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BAGIAN B -->
+                <div class="space-y-6 pt-4 border-t border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-rocket text-indigo-600"></i> B. Rencana Tindak Lanjut[cite: 308]
+                    </h3>
+
+                    <div class="space-y-3 p-6 bg-indigo-50/60 rounded-2xl border border-indigo-100">
+                        <h4 class="text-base font-bold text-indigo-950 leading-snug">
+                            Apa saja tiga hal penting yang akan Anda lakukan ketika memulai karir sebagai guru?[cite: 308]
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                            <div class="p-4 bg-white rounded-xl border border-indigo-200 space-y-2">
+                                <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-bold flex items-center justify-center text-xs">1</span>
+                                <h5 class="font-bold text-slate-900 text-xs">Asesmen Awal Pemetaan Karakteristik Murid</h5>
+                                <p class="text-[11px] text-slate-600 text-justify">
+                                    Mengidentifikasi latar belakang sosial, kemampuan awal, gaya belajar, minat, dan kebutuhan khusus murid sebagai dasar Rencana Pembelajaran Mendalam yang terdiferensiasi[cite: 308].
+                                </p>
+                            </div>
+
+                            <div class="p-4 bg-white rounded-xl border border-indigo-200 space-y-2">
+                                <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-bold flex items-center justify-center text-xs">2</span>
+                                <h5 class="font-bold text-slate-900 text-xs">Kesepakatan Kelas & Budaya PSE</h5>
+                                <p class="text-[11px] text-slate-600 text-justify">
+                                    Merumuskan norma kelas positif, merutinkan refleksi emosi pagi, teknik STOP, dan games konsentrasi untuk menciptakan iklim kontrol tinggi dan kehangatan tinggi[cite: 308].
+                                </p>
+                            </div>
+
+                            <div class="p-4 bg-white rounded-xl border border-indigo-200 space-y-2">
+                                <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-bold flex items-center justify-center text-xs">3</span>
+                                <h5 class="font-bold text-slate-900 text-xs">Pembelajaran Experiential & Proyek Lingkungan</h5>
+                                <p class="text-[11px] text-slate-600 text-justify">
+                                    Menyusun skenario interaktif memadukan Siklus Kolb, PBL, media digital, dan projek lingkungan kontekstual yang melibatkan siswa dan orang tua[cite: 308].
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo Footer" class="h-8 w-auto">
+                <span class="text-xs text-slate-400 font-medium">Muhammad Izzul Fahmi • NIM: 250211920117</span>
+            </div>
+            <p class="text-xs text-slate-500">Refleksi Pengalaman Belajar Portofolio Digital PPG Calon Guru Semester II</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE VIEW SWITCHER SCRIPT -->
+    <script>
+        function switchView(viewId) {
+            const views = [
+                'dashboard', 
+                'projek-kepemimpinan', 
+                'ptk', 
+                'pse', 
+                'ppl-mandiri', 
+                'pma-lanjut', 
+                'lk3'
+            ];
+
+            views.forEach(id => {
+                const el = document.getElementById('view-' + id);
+                if (el) {
+                    if (id === viewId) {
+                        el.classList.remove('hidden');
+                        setTimeout(() => {
+                            el.classList.remove('opacity-0');
+                            el.classList.add('opacity-100');
+                        }, 50);
+                    } else {
+                        el.classList.add('opacity-0');
+                        el.classList.remove('opacity-100');
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Scroll Smooth to Top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
